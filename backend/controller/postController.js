@@ -2,7 +2,7 @@ import Post from "../model/postModel.js";
 
 const getPost = async (req, res) => {
   try {
-    const content = await Post.find({});
+    const content = await Post.find({}).sort({ createdAt: -1 });
     res.status(200).json(content);
   } catch (error) {
     console.log(error);
